@@ -1,59 +1,88 @@
-# Install
+# 🌐 Angular Guide Cards
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+A modern, interactive Angular application featuring a card-based interface for showcasing travel guides with video introductions and detailed profiles.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌟 Features
+
+### 🧩 Core Functionality
+- 🎴 **Interactive Guide Cards** – Hover-responsive with image-to-video transitions
+- 🖼️ **Modal Profile Viewer** – Full-screen modal with videos & details
+- 🏷️ **Floating Name Tags** – Dynamic, mouse-tracking name display
+- 🧭 **Navigation System** – Seamless guide-to-guide transitions
+- 📱 **Responsive Design** – Optimized across all devices
+
+### 🎥 Video Features
+- 🔁 **Auto-play on Hover**
+- 🎬 **Modal Video Player** with custom controls
+- 🎛️ **Play/Pause, Mute/Unmute**
+- 🧩 **Fallback Handling & Loading States**
+- 🚀 **Performance Optimized**
+
+### 🎮 Interactive Elements
+- ⌨️ **Keyboard Navigation Support**
+- 🌈 **Smooth CSS Animations**
+- 🔄 **Loading Feedback**
+- 🛡️ **Robust Error Handling**
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+- Node.js (v16+)
+- Angular CLI (v15+)
+- npm or yarn
+
+### ⚙️ Installation
 
 ```bash
+git clone [<repository-url>](https://github.com/arshadahamed/Team-Card-Angular-TailwindCSS.git)
+cd angular-guide-cards
+npm install
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🎮 Usage Guide
 
-## Code scaffolding
+### 🖱️ Interaction
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Hover cards** → preview videos + name tag  
+- **Click cards** → open full modal with info  
+- **Use arrow keys** in modal to navigate  
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### ⌨️ Modal Shortcuts
 
-```bash
-ng generate --help
-```
+- `←/→` – Switch between guides  
+- `Space` or `K` – Play or pause video  
+- `M` – Mute/unmute  
+- `Escape` – Close modal  
 
-## Building
+---
 
-To build the project run:
+### 📱 Mobile
 
-```bash
-ng build
-```
+- Touch-friendly  
+- Floating elements hidden for clarity  
+- Performance-optimized for mobile limitations  
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🛠️ Configuration
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### ➕ Adding New Guides
 
-```bash
-ng test
-```
+Edit `personalData` in `app.component.ts`:
 
-## Running end-to-end tests
+```ts
+{
+  name: 'Guide Name',
+  img: 'path/to/image.jpg',
+  video: 'path/to/video.mp4',
+  tags: ['🌟 Tag1', '💼 Tag2'],
+  subtitle: 'Guide Specialty',
+  description: 'Guide details here...'
+}
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

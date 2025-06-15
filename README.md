@@ -2,6 +2,8 @@
 
 A modern, interactive Angular application featuring a card-based interface for showcasing travel guides with video introductions and detailed profiles.
 
+Demo - https://team-card-angular-tailwind-css.vercel.app/
+
 ---
 
 ## 🌟 Features

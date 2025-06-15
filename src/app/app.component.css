@@ -1,0 +1,224 @@
+/* Additional CSS for enhanced animations and effects */
+body { font-family: 'Poppins', sans-serif; }
+
+/* Fade in animation for modal backdrop */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide in animation for modal content */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes modalAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Enhanced card hover effects */
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.card-hover-transform {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-hover-transform:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+/* Video and image transitions for hover */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-fade {
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .video-fade {
+  opacity: 1 !important;
+}
+
+/* Loading spinner */
+.loading-spin {
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* Overlay effects */
+.overlay-slide {
+  transition: all 0.4s ease;
+}
+
+.card:hover .overlay-slide {
+  transform: translateY(-5px);
+}
+
+/* Smooth transitions for floating name tag */
+.name-tag {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.name-tag-smooth {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  will-change: transform;
+}
+
+.name-tag-smooth.visible {
+  opacity: 1 !important;
+  transform: translate(0, -50%) scale(1) !important;
+}
+
+.name-tag-smooth.moving {
+  transition: none;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  backdrop-filter: blur(5px);
+}
+
+.modal-appear {
+  animation: modalAppear 0.3s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Button hover effects */
+.play-hover {
+  transition: all 0.3s ease;
+}
+
+.play-hover:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+.modal-tag-hover {
+  transition: all 0.3s ease;
+}
+
+.modal-tag-hover:hover {
+  background: #e5e7eb !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus styles for accessibility */
+.card:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Performance optimization for transforms */
+.card,
+.name-tag {
+  will-change: transform;
+}
+
+/* Ensure video doesn't interfere with layout */
+video {
+  display: block;
+  object-fit: cover;
+}
+
+/* Play/Pause button styles */
+.play-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid #333;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  margin-left: 5px;
+}
+
+.pause-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.pause-bars::before,
+.pause-bars::after {
+  content: '';
+  width: 6px;
+  height: 30px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin: 1rem;
+    max-height: 95vh;
+  }
+
+  .name-tag {
+    display: none !important;
+  }
+}

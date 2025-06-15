@@ -11,11 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('modalVideo') modalVideoElement!: ElementRef<HTMLVideoElement>;
 
-  cardData = [
-    { name: 'Andrew Rotz', prev: 'Angela', next: 'Alli' },
-    { name: 'Alli Hershey', prev: 'Andrew', next: 'Angela' },
-    { name: 'Angela Moore', prev: 'Alli', next: 'Andrew' }
-  ];
+  cardData: { name: string; prev: string; next: string }[] = [];
 
   personalData = [
     {
@@ -41,7 +37,31 @@ export class AppComponent implements OnInit, OnDestroy {
       tags: ['🎯 Focused', '📚 Knowledgeable', '🌟 Insightful'],
       subtitle: 'Adventure Travel Coordinator',
       description: 'Angela coordinates exhilarating adventure trips tailored to thrill-seekers. Her deep knowledge of the terrain ensures safety and excitement.'
-    }
+    },
+    {
+      name: 'Jonathan Smith',
+      img: 'https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/67d8b5cf20502fa98d55b9ff_20250317_Frutiful_Guide_Headshot_Andrew.png',
+      video: 'https://d1pwidzl9kib4u.cloudfront.net/marketing/20240305/4x3_Low_Quality_Low_Captions/20240304_Fruitful_Guide_4x3_Andrew_sm_locap.mp4',
+      tags: ['🎯 Focused', '📚 Knowledgeable', '🌟 Insightful'],
+      subtitle: 'CFP® Professional',
+      description: 'Andrew has worked in financial services since 2012. He loves seeing the relief that comes when he helps his Members alleviate a major stressor in their financial lives. He\'s worked at Fidelity Investments, built a bespoke financial wellness program at NC State University, and his own firm while also serving in the US Navy. He loves exploring the Star Wars world with his two boys, traveling around the real world, and history!'
+    },
+    {
+      name: 'Colin Bishop',
+      img: 'https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/67e1bb01ab737a97df80b4d2_20230726_FF_guide_headshot_colin_FEE9D1.png',
+      video: 'https://d1pwidzl9kib4u.cloudfront.net/marketing/20240305/4x3_Low_Quality_Low_Captions/20240304_Fruitful_Guide_4x3_Colin_sm_locap.mp4',
+      tags: ['❤️ Empathetic', '🤝 Collaborative', '📚 Resourceful'],
+      subtitle: 'CFP® Professional',
+      description: 'Colin has 11 years of planning and advising experience. He’s passionate about building people’s confidence to pursue their financial goals while saving them time and energy. He previously worked at Morgan Stanley before building his own financial planning firm. He loves soccer, volleyball, and hiking with his partner, Ali.'
+    },
+    {
+      name: 'Andrew Rotz',
+      img: 'https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/67d8b625b6c27444ff25ef19_20250317_Frutiful_Guide_Headshot_Andrea.png',
+      video: 'https://d1pwidzl9kib4u.cloudfront.net/marketing/20240305/4x3_Low_Quality_Low_Captions/20240304_Fruitful_Guide_4x3_Andrea_sm_locap.mp4',
+      tags: ['💬 Conversational', '💼 Dedicated', '🌈 Open-minded'],
+      subtitle: 'Expert in Sustainable Tourism',
+      description: 'Andrew is a seasoned guide specializing in sustainable travel and eco-friendly adventures. With over a decade of experience, he brings passion and deep knowledge to every tour.'
+    },
   ];
 
   currentCardIndex = 0;
@@ -80,6 +100,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.handleResize();
+    this.cardData = this.personalData.map((person, index, arr) => {
+      const prev = arr[(index - 1 + arr.length) % arr.length].name;
+      const next = arr[(index + 1) % arr.length].name;
+      return {
+        name: person.name,
+        prev,
+        next
+      };
+    });
   }
 
   ngOnDestroy(): void {
